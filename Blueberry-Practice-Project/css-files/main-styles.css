@@ -1,0 +1,359 @@
+* {
+  font-family: "Noto Serif JP", serif;
+  font-size: 16px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  height: 4000px;
+  overflow-x: hidden;   /* not a "hack", needed because use of 100vw sometimes cause horizontal scrollbar. Could've used 100% as length unit as alternative, but good practice to use different syntax/fix things */
+}
+
+:not(.nav-heading)::selection {
+  background-color: hsl(219, 97%, 41%);
+  color: white;
+}
+
+.nav-heading::selection {
+  background-color: white;
+  color: hsl(219, 97%, 41%);
+}
+
+a {
+  color: red;
+}
+
+a:hover {
+  background-image: linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)), linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%));   /*  the second gradient here needed for two reasons  –  1) need to translate the link underline a touch lower than the default position provided by text-decoration prop  –  2) provide gradient for the underline instead of a default color in order to match the text gradient */
+  background-clip: text, border-box;
+  -webkit-background-clip: text, border-box;
+  color: transparent;
+  background-position: left top, 0% 100%;
+  background-size: 100% 100%, 100% 1px;   /* 1px same height of default height of underline from text-decoration: underline; */
+  background-repeat: no-repeat, no-repeat;
+}
+
+a:active {
+  color: transparent;
+}   /* keep :active styles the same as :hover, not all browsers change <a> color prop on :active, but this declaration here will ensure consistency when they do */
+
+button {   
+  font-family: inherit; 
+  font-size: 1rem;
+  padding: 0px;
+  border: initial;
+  border-radius: 20px;
+  color: white;
+  background-color: initial;
+  box-shadow: initial;
+  cursor: pointer;
+}   /* eliminate <button> default styles */
+
+.full-gradient {
+  background-image: linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%));
+}
+
+.text-gradient {
+  background-image: linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%));
+  background-size: 100% 100%;
+  color: transparent;
+  background-clip: text;  
+  -webkit-background-clip: text;
+}
+
+.gradient-border {
+  background-image: 
+  linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+  linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+  linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+  linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%));
+  background-size: 100% 5px, 5px 100%, 100% 5px, 5px 100%;
+  background-position: left top, right top, left bottom, left top;
+  background-repeat: no-repeat;    
+}
+
+.header-div {
+  position: relative;
+  height: 100px;
+  box-shadow: 2px 2px 6px gray, -2px 2px 6px gray;   /* two shadows because 2 x-axis offset values needed for box shadow to be present for entire width of element */
+  background-image: url("/images/blueberries-nav-left.png"), 
+  url("/images/blueberries-nav-right.png"),
+  linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%));  
+  background-size: 75px 60px, 75px 60px, 100% 100%;
+  background-position: 20px 20px, calc(100% - 20px) 20px, left top;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.nav-heading {  
+  box-sizing: content-box;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+  color: white;
+  background-image: url("/images/fancy-heading-underline.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;  
+}
+
+.opening-heading {
+  margin-top: calc(1.5rem + 1px);
+  text-align: center;
+}
+
+#super {
+  font-size: inherit;
+  font-style: normal;   /* override default italic font-style value of <i> element */
+  background-image: linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)), linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%));    /* second gradient needed once again to provide gradient for the underline and have it translate a touch lower  -  also needed to have an underline thicker than default one provided by text-decoration prop */
+  background-clip: text, border-box;
+  -webkit-background-clip: text, border-box;
+  color: transparent;
+  background-position: left top, 0% 90%;
+  background-size: 100% 100%, 100% 10%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.outer-flex-container {   
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 50px;
+}   /* needed to keep inner container centered within viewport */
+
+.inner-flex-container {
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;   /* flex-direction & wrap props not needed but provides visual reminder for behavior needed from flexbox */
+  justify-content: space-between;
+  align-content: space-between; 
+  width: 700px;
+  height: 450px;
+} 
+
+.bb-trait-headings {
+  font-size: 1.5rem;
+  padding-bottom: 15px;
+  font-style: italic;
+}
+
+.bb-trait-boxes {  
+  width: 200px; 
+  height: 200px;
+  padding: 1.25rem;
+  text-align: center;
+  border-radius: 10px; 
+  box-shadow: 1px 1px 7px #c0c0c088, 
+              -1px -0.5px 7px #c0c0c088,
+              1px -0.5px 7px #c0c0c088,
+              -1px 1px 7px #c0c0c088;   /* create smoother shadows by layering them */
+}
+
+.bb-trait-boxes:hover {
+  transform: scale(1.05);
+  transition: transform 0.25s;
+  box-shadow: 5px 5px 15px #c0c0c088, 
+              -5px -2.5px 15px #c0c0c088,
+              5px -2.5px 15px #c0c0c088,
+              -5px 5px 15px #c0c0c088;
+  background-image: 
+  linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+  linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+  linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+  linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%));   /* gradient borders using background-image vs. border-image is a cleaner solution    ||    alternate the side in which gradient flows to in order to keep the border appearance the same on all four sides */
+  background-size: 100% 5px, 5px 100%, 100% 5px, 5px 100%;
+  background-position: left top, right top, left bottom, left top;
+  background-repeat: no-repeat;          
+}
+
+.scroll-btn {
+  position: fixed;
+  z-index: 1;   /* make sure scroll btn always on top of anything it overlaps */
+  opacity: 0;
+  bottom: 20px;
+  right: 20px;
+  cursor: initial;   /* keep default cursor while scroll btn invisible (i.e. cursor: pointer; in <button> tag selector rule above, needed to override it */
+}
+
+.scroll-icon {
+  position: fixed;
+  display: inline-block;  /* be able to apply a width so that the width of the arrow icon can mirror the width of the scroll btn in order to always keep arrow icon centered within button */
+  right: 20px;
+  bottom: 20px;
+  opacity: 0;
+  text-shadow: 3px 3px 7px #c0c0c088, -3px 3px 7px #c0c0c088;
+  text-align: center;
+}
+
+.btn-visible {
+  opacity: 1;
+  cursor: pointer;
+} 
+
+.show-arrow {
+  opacity: 1;
+  transform: translateY(calc(-100% + -5px));
+}
+
+.flex-and-dimensions {
+  position: relative;   /* position iframe wrapper relatively in order to position iframe overlay element (invisible) absolutely */
+  display: flex;   /* use flexbox to always keep <iframe> centered on main axis/cross axis */
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 400px;
+  cursor: pointer;
+}
+
+.increase-margin {margin-top: 75px;}
+
+.video-gradient {
+  background-image: linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%));
+  background-size: 100% 100%;   /* separate class for gradient background on iframe wrapper in order to apply it dynamically when window.onload event fires  -  Gives iframe a "picture frame" like appearance */
+}
+
+.iframe-dimensions {
+  width: 690px;
+  height: 390px;   /* these dimensions, combined with being a flex item, allows iframe to always maintain 5px border on each side */
+  border-radius: 2.5rem;   /* On mobile, sometimes the iframe does not receive its rounded corners that we declared here. I tried a few workarounds including having an additional wrapper on the iframe that has a little bit smaller dimensions than the iframe and then using overflow: hidden; on that additional iframe wrapper, but this still did not produce rounded corners... I did a consultation from a very experienced codementor on the issue after troubleshooting significantly on my own and he told me there was most likely nothing we could do about it because it’s just the default behavior of how mobile browsers handle iframe’s. And it really doesn’t break the experience at all anyway. */
+}
+
+#invisible-overlay {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;   /* invisible iframe overlay element needed as a substitute to attaching a listener to iframe directly since disallowed from attaching event listeners to iframe with external resource linked (YouTube video)... place the invisible overlay element higher than the iframe on the z-axis in order for click event to fire and :hover styles to be applied to custom YouTube play icon */
+}
+
+.fullscreen-overlay {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000C;   /* enter "theater mode", apply this class dynamically when user clicks on video. Make the document read-only with the fullscreen overlay <div>. Make it semi-transparent to keep the document visible */
+} 
+
+.apply-transition-ease {transition: background-color 0.75s;}
+.apply-transition-linear {transition: background-color 0.75s linear;}   /* a linear timing-function for the transition on the background-color of the fullscreen overlay <div> created a smoother experience when exiting "theater mode" of the video */
+
+.iframe-wrapper-fixed {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.iframe-video-fixed {
+  position: fixed;
+  z-index: 11;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.exit-icon {
+  position: fixed;
+  z-index: 11;
+  top: -60px;
+  right: -6px;
+  color: hsl(0, 100%, 50%);
+  transition: color 0.4s, transform 0.25s;
+  cursor: pointer;
+}
+
+.exit-icon:hover {
+  color: hsl(0, 100%, 25%); 
+  transform: scale(1.2);
+}
+
+#x-icon-font-size {font-size: 50px;}
+
+#play-btn-background {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 68px;
+  height: 3rem;
+  border-radius: 50%/5%;   /* the next three rules (including current one) are for the custom YouTube play icon I had to create in order to still provide :hover styles (red color) on the icon. 2 radii used in border-radius declaration in order to mirror the elliptical shape of the YouTube play icon. In all honesty and fairness, I did get significant help from a CodePen demo to help me create this but I did indeed add my own flavor to it as well. I had not worked with elliptical corners much previously as they appeared to be rarely used */
+  transform: translateX(-50%) translateY(-50%);
+  background-color: hsl(0, 0%, 20%);
+}
+
+#play-btn-background::before {
+  content: "";
+  display: inherit;
+  position: inherit;
+  top: 5%;
+  left: -5%;
+  width: calc(68px + (68px * 0.1));
+  height: calc(3rem - (3rem * 0.1));   /* two elements used to create the final/overall shape of the custom YouTube play icon, one of them being a child pseudo-element... Position the pseudo-element in the correct place and size it correctly in order to fill in the deficiencies associated with the first (parent) elements shape */
+  border-radius: 5%/50%;
+  background-color: inherit;
+}
+
+#play-btn-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 38px;
+  color: white;
+}
+
+#invisible-overlay:hover + #play-btn-background {
+  background-color: hsl(0, 100%, 50%);
+}
+
+.closing-message {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

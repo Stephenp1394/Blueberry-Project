@@ -1,0 +1,54 @@
+<a href="/html-files/blueberry.html">blueberry webpage</a>
+
+
+<!-- General points to keep in mind for the entire project: -->
+
+
+<!----------------------------------------------------------------->
+
+
+<!-- please read all the comments in the index file here before looking at the code --> 
+<!-- please test the project in latest version of Firefox  -  also, dom.visualviewport.enabled must be set to true in about:config settings of Firefox (NOTE: FF only browser where you need to enable a setting)  -  the project is working well across browsers, but Firefox delivers the best experience  -  open the project in a new tab by clicking on square icon in top right corner of preview pane -->
+<!--  the overwhelming majority of the code in this project was written by me on my own. Did I seek out help sometimes from platforms like codementor and stack overflow when I got stuck on a particular thing?... Yes, that’s the natural and right thing to do when you are stuck I believe, but at the end of the day, I completed the overwhelming majority of this project on my own. And for the most part, most of the components of this project were not modeled after something else I saw on another webpage/from codepen, etc., I organically thought of and designed most of the components of this project on my own. For example, the “page flipping” operation (explained later) that I have on mobile viewports I completely thought of on my own. I did get some minor help building it when some bugs arised, but I can definitely say that I built the majority of it and thought of all the design aspects of it myself -->
+<!-- someone who did NOT write the overwhelming majority of this code would never have written very detailed code comments the way I did all throughout this project -->
+<!-- NO css frameworks were used and NO JavaScript libraries/frameworks were used either. This is all plain CSS and vanilla JS  -  I already learned Sass but it did not seem necessary to use for this project and I will be starting to learn and practice with React immediately following building my initial portfolio. That being said, I don’t see this as a negative point but rather a positive point because those tools do a lot of the work for you that you would otherwise have to do on your own (I’m not knocking those tools though, I know that they are very important) -->
+<!--  there is some inconsistency in the type of syntax used throughout the project, (e.g. using classList.add() and className, querySelector() and element.children[0], etc.)... I did this to try and apply as much of what I learned as possible and to demonstrate that I know the different components of the language’s syntax -->
+<!-- there’s a somewhat decent amount of components in this project that are not entirely practical because this project wasn’t necessarily designed to be completely practical, it was to practice my skills and demonstrate my knowledge/ show what I am capable of. So sometimes I wrote code in a particular way that maybe wasn’t the most efficient way to accomplish something or maybe a particular component wasn’t really needed at all in the first place, or maybe it wasn’t the absolute best method to choose with performance in mind... I was aware of this, but still went on building it out in this manner for the aforementioned reasons -->
+<!--  I know that /* */ is a multiline comment in JavaScript, but you’ll see that I sometimes used them for single-line comments as well. This was simply to keep things consistent and improve readability when I had large blocks of comments  -->
+<!--  I absolutely did do significant browser testing and strived for the project to be working well across browsers but there is a small amount of minor/very minor inconsistencies that do exist. So the project is not absolutely perfect but I tried incredibly hard to make it as perfect as possible and was very, very meticulous with everything as a whole -->
+<!-- Some of the browser inconsistencies honestly appeared to be browser bugs or atleast inconsistencies that could not be remedied  -  here is a list of them:
+
+  Desktop Safari: first load event (handler initializes the book flipping layout) sometimes does not fire when the viewport width is sized down low enough to the point where the “page flipping” layout would be displayed - This occurs despite the fact that all my load events use addEventListener() (i.e. none use onload event handler property)
+
+  Desktop Safari:  when the gradient bordered boxes are hovered on smaller viewport widths (<= 750px), background-clip: text; appears to be buggy because a tiny gradient line (outside of the heading text) does not get clipped from the gradient background, also there is a tiny white line through the actual text gradient
+
+  Desktop Safari: 2 separate transition issues related to the scroll button (i.e. the lack of a transition when there should be one) sometimes occur   -   explained in the scroll button comments in the JS file
+
+  All Mobile browsers: iframe does not have rounded corners on some mobile devices  (NOTE: very experienced web developer told me there’s most likely nothing we can do about it)
+
+  All Mobile browsers except Safari: iframe border not being removed upon exiting “theater mode”  (also appears to be attributed to the way mobile browsers handle iframe’s)
+
+-->
+
+
+
+<!--  there is a handful of terms that I use throughout the code comments, here is what they refer to:
+  
+  “book”  =  all the transform: rotateY(180deg) operations that occur onclick of the gradient bordered boxes at viewport widths <= 400px. “book” also includes the empty white box and the curved arrow icon
+
+  “page”  =  an individual gradient bordered box/element at viewport widths <= 400px. 
+
+  “page flip/flipping”   =   when an individual gradient bordered box/element is applied transform: rotateY(180deg); 
+
+  “scroll btn”   =   scroll to top <button>
+
+  “iframe”  =  I’m oftentimes referring to the iframe WRAPPER when I say “iframe” because it’s more natural and simple to do so
+
+  “iframe border”   =   iframe wrapper
+
+  “theater mode”  =   when you click on iframe, iframe becomes fixed to the viewport, and dark full-screen overlay makes document read-only
+
+  “default mode”   =    when the document is NOT in theater mode
+
+-->
+

@@ -1,0 +1,359 @@
+.font-size-h2 {
+  font-size: min(max(20.25px + 0.75vw, 1.5em), 34px);   /* NOTE: I am aware that you cannot have "half" or a "percentage" of a pixel, but using decimals will lead to more accurate computed values due to the rounding from the user agent */
+}
+
+.nav-heading {  
+  background-size: min(max(124px + 4.2vw, 145px), 200px) 15px;
+  transform: translateY(
+    max(min(-16.4px + -0.6vw, -20px), -27px)
+  );
+}   /* make the centering of the nav heading and the fancy underline for the nav heading responsive */
+
+
+@supports not (background-clip: text) {
+  #super {
+    background-image: linear-gradient(to right, hsl(219, 97%, 41%) 100%, hsl(201, 97%, 41%));
+    background-clip: border-box;
+    background-position: 0% 90%;
+    background-size: 100% 10%;
+    background-repeat: no-repeat;
+    color: hsl(219, 97%, 41%);
+  }
+  a:hover {
+    background-image: linear-gradient(to right, hsl(219, 97%, 41%) 100%, hsl(201, 97%, 41%));
+    background-clip: border-box;
+    background-position: 0% 100%;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    color: hsl(219, 97%, 41%);
+    text-decoration: none;   /* background-clip: text; clips away underline from text-decoration: underline;   -   when background-clip: text; not supported, we need to explicitly remove text-decoration */
+  }
+  a:active {
+    color: hsl(219, 97%, 41%);
+  }
+  .trait-headings {
+    background-image: none;
+    color: hsl(219, 97%, 41%);
+  }  
+}   /* fallbacks for all uses of text gradients  -  when text gradients not supported, no longer want to use a true gradient for the underline of the text because it won’t match the text color anymore  -  hence, notice the edits made to the color stops */
+
+#super {
+  padding-bottom: min(max(7.5px + 0.3vw, 9px), 13px);
+}   /* make gradient underline (sitting beneath "Superfood") responsive */
+
+.responsive-btn {
+  width: min(max(75px + 5vw, 90px), 170px);
+  height: min(max(26.25px + 1.25vw, 30px), 50px);
+  line-height: min(max(26.25px + 1.25vw, 30px), 50px);
+  border-radius: min(max(18.6px + 0.6vw, 20px), 30px);
+  font-size: min(max(8.6px + 0.6vw, 0.65rem), 1.25rem);
+}
+
+.responsive-up-arrow {
+  width: min(max(75px + 5vw, 90px), 170px);
+}   /* apply a responsive width to "up-arrow" icon (appears on hover of scroll btn) that mirrors width of scroll btn itself to always keep arrow icon centered */
+
+#up-arrow-icon {
+  font-size: min(max(26.25px + 1.25vw, 30px), 50px);
+}
+
+@media screen and (min-width: 1000px) {
+  .header-div {
+    background-size: 95px 70px, 95px 70px, 100% 100%;
+  } 
+}
+
+@media screen and (max-width: 1075px) {
+  .closing-message {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .inner-flex-container {
+    width: calc(100vw - 50px);   
+  }   /* initial breakpoint for group of gradient bordered boxes. Goal is to always maintain 25px from edges of viewport */
+  .flex-and-dimensions {
+    width: calc(100vw - 50px);  
+    height: calc((100vw - 50px) / 1.75);
+  }
+  .iframe-dimensions {
+    width: calc((100vw - 50px) - 10px);
+    height: calc((100vw - 50px) / 1.75 - 10px);
+  }
+  .iframe-wrapper-fixed {
+    width: calc(100vw - 50px);  
+    height: calc((100vw - 50px) / 1.75); 
+  }
+  .iframe-video-fixed {
+    width: calc((100vw - 50px) - 10px);
+    height: calc((100vw - 50px) / 1.75 - 10px);
+  }   /* explanation of last 4 rules here: first 2 rules scale down iframe fluidly when viewport width can no longer support default/static dimensions (when iframe not in "theater mode")  –  last 2 rules do the same thing, iframe can no longer be scaled up in theater mode from its default dimensions. Now it simply needs to always mirror default dimensions */
+}
+
+@media screen and (max-width: 700px) {
+  .bb-trait-boxes {
+    width: calc(120px + 10vw);  
+    height: calc(120px + 10vw);
+    padding-top: calc(7px + 1.66vw);
+  }
+  .inner-flex-container {
+    height: calc(290px + 20vw);
+  }
+  .bb-trait-headings {
+    font-size: calc(1rem + 1vw);
+    padding-bottom: max(7px + 1vw, 10px);
+  }
+  .bb-trait-description {
+    font-size: max(0.5rem + 1vw, 11px);
+  }    
+}   /* dimensions for group of gradient bordered boxes must start to scale down because they will get to close to each other.... and so must everything else along with to keep the ratios between everything in sync (i.e. headings inside boxes, description text in box, etc.) */
+
+@media screen and (max-width: 650px) {
+  .inner-flex-container {
+    width: 425px;
+    height: 650px;
+  }
+  .bb-trait-boxes {
+    width: 200px; 
+    height: 200px;
+    padding-top: 1.25rem;
+  }
+  .bb-trait-headings {
+    font-size: 1.5rem;
+    padding-bottom: 15px;
+  }
+  .bb-trait-description {
+    font-size: 1rem;
+  }
+}   /* keep a static, double column layout for group of gradient bordered boxes when viewport width can no longer support triple column layout of boxes... then go back to responsive layout (next media query directly below) when the viewport width can no longer support boxes with these static dimensions */
+
+@media screen and (max-width: 475px) {
+  .bb-trait-boxes {
+    width: calc(120px + 10vw);  
+    height: calc(120px + 10vw);
+    padding-top: calc(7px + 1.66vw);
+  }
+  .inner-flex-container {
+    width: calc(100vw - 50px);
+    height: calc(410px + 30vw);
+  }
+  .bb-trait-headings {
+    font-size: calc(1rem + 1vw);
+    padding-bottom: max(7px + 1vw, 10px);
+  }
+  .bb-trait-description {
+    font-size: max(0.5rem + 1vw, 11px);
+  }
+}
+
+@media screen and (max-width: 400px) {  
+  /* viewport width can no longer support double column layout for group of gradient bordered boxes (boxes would have to become too small), and would look silly to have single colum layout with 6 boxes  –  enter the "book/page flipping" experience provided by this media query  –  stack the 6 boxes on top of each other, and flip through them all by clicking each box to simulate flipping through the pages of a book. Then reset everything back to the beginning state to allow user to flip through the "book" again. */
+
+  #arrow-icon {
+   position: absolute;
+   left: calc(120px + 10vw);
+   transform: translateX(-50%) rotate(-50deg);
+   bottom: calc(120px + 10vw + 10px);
+   width: 50px;
+   height: 50px;
+  }   /* curved arrow icon to show instructions for what user should do  –  had to edit the CSS for it in order to have it positioned correctly */
+
+  @keyframes show-instructions {
+  0% {
+    position: absolute;
+    transform: translateX(0px) translateY(-50px) rotate(0deg);
+    opacity: 0;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 13px;
+    font-size: 0.7rem;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+   }
+   15% {
+     opacity: 1; 
+     position: absolute;
+     transform: translateX(calc(120px + 10vw - 50px)) translateY(-90px) rotate(180deg);
+     width: 100px;
+     height: 40px;
+     line-height: 40px;
+     padding-left: 13px;
+     font-size: 0.7rem;
+     background-color: black;
+     color: white;
+     border-radius: 5px;
+   }
+   30% {
+     opacity: 1;
+     transform: translateX(calc(120px + 10vw + 30px)) translateY(-55px) rotate(360deg);
+     position: absolute;
+     width: 100px;
+     height: 40px;
+     line-height: 40px;
+     padding-left: 13px;
+     font-size: 0.7rem;
+     background-color: black;
+     color: white;
+     border-radius: 5px;
+   }
+   75% {
+     opacity: 1;
+     transform: translateX(calc(120px + 10vw + 30px)) translateY(-55px) rotate(360deg);
+     position: absolute;
+     width: 100px;
+     height: 40px;
+     line-height: 40px;
+     padding-left: 13px;
+     font-size: 0.7rem;
+     background-color: black;
+     color: white;
+     border-radius: 5px;
+   }
+   100% {
+     opacity: 0;
+     transform: translateX(calc(120px + 10vw + 30px)) translateY(-55px) rotate(360deg);
+     position: absolute;
+     width: 100px;
+     height: 40px;
+     line-height: 40px;
+     padding-left: 13px;
+     font-size: 0.7rem;
+     background-color: black;
+     color: white;
+     border-radius: 5px;
+   }
+ }   /* create CSS animation to show user instructions in a more explicit and creative way  –  instructions to click the box at book flipping viewport  –  transform property most important to pay attention to here */
+ 
+ .show-instructions {
+   animation: show-instructions 6.5s linear;
+   animation-fill-mode: forwards;
+ }
+ .outer-flex-container {
+   margin-top: 85px;
+ }
+ .inner-flex-container {
+   position: relative;
+   width: calc(240px + 20vw);
+   height: calc(120px + 10vw);
+ }   /* size flex wrapper containing all gradient bordered boxes to the width of 2 boxes combined and a height of 1 box */
+
+ .bb-trait-boxes, .bb-trait-boxes:hover {  
+   opacity: 0;
+   transition: transform 1s linear;
+   position: absolute;
+   left: calc(120px + 10vw);
+   transform: scale(1);
+   background-image: 
+   linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+   linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+   linear-gradient(to right, hsl(219, 97%, 41%), hsl(201, 97%, 41%)),
+   linear-gradient(to bottom, hsl(219, 97%, 41%), hsl(201, 97%, 41%));
+   background-size: 100% 5px, 5px 100%, 100% 5px, 5px 100%;
+   background-position: left top, right top, left bottom, left top;
+   background-repeat: no-repeat;
+ }   /* eliminate hover styles for gradient bordered boxes since this is mobile layout, make all boxes invisible by default except for first one, use left offset prop so that all boxes up against right edge of container */
+
+ .bb-trait-boxes:hover {
+   cursor: pointer;
+   box-shadow: 1px 1px 7px #c0c0c088, 
+              -1px -0.5px 7px #c0c0c088,
+              1px -0.5px 7px #c0c0c088,
+              -1px 1px 7px #c0c0c088;
+ }
+
+ .invisible-pre-load {display: none;}   /* keep first "page" of book (only one visible by default) invisible until the empty white box and curved arrow icon loads to keep them in all in sync with each other */
+
+ #trait-1 {opacity: 1; z-index: 6;}
+ #trait-2 {z-index: 5;}
+ #trait-3 {z-index: 4;}
+ #trait-4 {z-index: 3;}
+ #trait-5 {z-index: 2;}
+ #trait-6 {z-index: 1;}
+
+ @keyframes fade-box-shadow {
+   0% {box-shadow: 1px 1px 7px #c0c0c088, -1px -0.5px 7px #c0c0c088, 1px -0.5px 7px #c0c0c088, -1px 1px 7px #c0c0c088;}
+   100% {box-shadow: initial;}
+ }
+ @keyframes implement-box-shadow {
+   0% {box-shadow: initial;}
+   100% {box-shadow: 1px 1px 7px #c0c0c088, -1px -0.5px 7px #c0c0c088, 1px -0.5px 7px #c0c0c088, -1px 1px 7px #c0c0c088;}
+ }   /* use CSS animation to remove and re-apply box-shadow on empty white box for reset of the "page flipping" experience  –  need to use CSS animation since the element this animation is being applied to is added dynamically, thus can't use transition property for the box shadow on it... same exact thing applies to the 2 animations below here to toggle visibility of the arrow icon, arrow icon added dynamically so need to use CSS animation versus transition */
+ 
+ .remove-box-shadow {
+   animation: fade-box-shadow 1.5s;
+ }
+ .add-box-shadow {
+   animation: implement-box-shadow 3s;
+ }
+
+ @keyframes img-invisible {
+   0% {opacity: 1;}
+   100% {opacity: 0;}
+ }
+ @keyframes display-img {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+ }
+ .arrow-invisible {
+   animation: img-invisible 1.5s;
+   animation-fill-mode: forwards;
+ }
+ .display-arrow {
+   animation: display-img 4s;
+   animation-fill-mode: forwards;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+<!doctype html>
+  <html lang="en" dir="ltr">
+    <head> 
+      <title>World of Blueberries</title>   
+      <link href="/css-files/main-styles.css" type="text/css" rel="stylesheet">
+      <link href="/css-files/responsiveness-accessibility.css" type="text/css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="Stephen Pastore">
+      <meta name="keywords" content="blueberries, blueberry, fruit, antioxidants, healthy eating, produce, groceries">
+      <meta name="description" content="description and general information regarding Blueberries">
+    </head>
+    <body>
+      <header>
+        <div class="header-div full-gradient">
+          <h2 class="nav-heading font-size-h2">Blueberries</h2>
+        </div>
+      </header>
+      <main>
+        <section id="section-1">
+          <h2 class="opening-heading font-size-h2" >Meet the 
+            <i id="super" title="A food with exceptional nutrient density">Superfood</i>
+          </h2>
+          <div class="outer-flex-container">   <!-- center inner container within viewport -->
+            <div class="inner-flex-container">
+              <div id="trait-1" class="bb-trait-boxes invisible-pre-load">
+                <h3 class="bb-trait-headings text-gradient">Heart Healthy</h3>
+                <p class="bb-trait-description">Reduces blood pressure and risk of heart attack</p>
+              </div>
+              <div id="trait-2" class="bb-trait-boxes">
+                <h3 class="bb-trait-headings text-gradient">Very Satiating</h3>
+                <p class="bb-trait-description">Stay full for longer, high in fiber and water density</p>
+              </div>
+              <div id="trait-3" class="bb-trait-boxes">
+                <h3 class="bb-trait-headings text-gradient">Delicious Taste</h3>
+                <p class="bb-trait-description">A crowd favorite, very sweet and often times sour</p>
+              </div>
+              <div id="trait-4" class="bb-trait-boxes">
+                <h3 class="bb-trait-headings text-gradient">Dieter Friendly</h3>
+                <p class="bb-trait-description">Keep off the pounds, low in calories and fat</p>
+              </div>
+              <div id="trait-5" class="bb-trait-boxes">
+                <h3 class="bb-trait-headings text-gradient">Vitamins & Minerals</h3>
+                <p class="bb-trait-description">Rich in Vitamin K1, Vitamin C, and Manganese</p>
+              </div>
+              <div id="trait-6" class="bb-trait-boxes">
+                <h3 class="bb-trait-headings text-gradient">Cognitive Benefits</h3>
+                <p class="bb-trait-description">Boosts memory and overall brain function</p>
+              </div>
+            </div>
+          </div>
+          <span id="up-arrow-icon" class="material-icons scroll-icon responsive-up-arrow">north</span>
+          <button class="scroll-btn responsive-btn full-gradient" type="button">Scroll To Top</button>
+        </section>
+        <section id="section-2">
+          <div class="outer-flex-container increase-margin">
+            <div id="theater-mode" class="apply-transition-ease"></div>   <!-- make doc read-only when "theater mode" of video invoked  –  a full screen overlay -->
+            <div id="inner-flx-wrapper" class="flex-and-dimensions">   <!-- give iframe "picture frame" like appearance -->
+              <iframe id="intro-video" class="iframe-dimensions" src="https://www.youtube.com/embed/lBcS2tZ1eMQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+              </iframe>
+              <div id="invisible-overlay" class="flex-and-dimensions"></div>   <!-- element needed as a substitute to attaching a listener to iframe directly since disallowed from attaching event listeners to iframe with external resource linked  –  covers iframes dimensions -->
+              <span id="play-btn-background"></span>   <!-- two <span>'s here to re-create my own version of YouTube play icon in order to provide same/original YouTube :hover styles for icon. The icon you see on the video (before clicking on it) is custom one I created, the real YouTube one is made visible after entering "theater mode" -->
+              <span id="play-btn-icon" class="material-icons">play_arrow</span>
+            </div>
+          </div>
+        </section>
+        <section id="section-3" class="closing-message increase-margin">
+          <p style="font-size: inherit;">I hope you enjoyed this introduction to blueberries. For more information, please visit <a id="bb-info-link" href="https://www.healthline.com/nutrition/foods/blueberries" target="_blank" style="font-size: inherit;">this webpage here.</a></p>
+        </section>
+      </main>
+      <script src="/javascript-files/main.js"></script>
+    </body>
+  </html>
